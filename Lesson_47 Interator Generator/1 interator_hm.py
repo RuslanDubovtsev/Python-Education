@@ -1,0 +1,21 @@
+from random import randint
+
+
+class Random:
+    def __init__(self, limit=10):
+        self.limit = limit
+        self.count = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.count < self.limit:
+            self.count += 1
+            return randint(1, 10)
+        else:
+            raise StopIteration()
+
+
+for i in Random():
+    print("число", i)
